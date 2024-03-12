@@ -1,0 +1,23 @@
+[
+    {
+        "id": 0,
+        "title": "Task 1",
+        "description": "Task 1 description",
+        "long_description": "Task 1 long description",
+        "status": "Done"
+    },
+    {
+        "id": 1,
+        "title": "Task 2",
+        "description": "Task 2 description",
+        "long_description": "Task 2 long description",
+        "status": "Doing"
+    },
+    {
+        "id": 2,
+        "title": "Task 3",
+        "description": "Task 3 description",
+        "long_description": "Task 3 long description",
+        "status": "To Do"
+    }
+]
