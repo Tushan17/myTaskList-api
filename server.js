@@ -38,8 +38,10 @@ server.listen(8070, function check(error) {
 //view the tasks
 
 server.get("/api/task", (req, res) => {
+  //json server
   res.send({ status: true, data: taskData });
 
+  //sql
   // let sql = "SELECT * FROM tasks";
   // db.query(sql, function (error, result) {
   //   if (error) {
@@ -62,8 +64,11 @@ server.post("/api/task/add", (req, res) => {
     status: "todo",
   };
 
+  //json server
   taskData.push(details);
   res.send({ status: true, message: "Task Created successfully" });
+
+  //sql
   // let sql = "INSERT INTO tasks SET ?";
   // db.query(sql, details, (error) => {
   //   if (error) {
@@ -78,12 +83,14 @@ server.post("/api/task/add", (req, res) => {
 
 server.get("/api/task/:id", (req, res) => {
   let taskId = req.params.id;
+  //json server
   let result = taskData.at(taskId);
   if (result) {
     res.send({ status: true, data: [result] });
   } else {
     res.send({ status: false, message: "Task not found" });
   }
+  //sql
   // let sql = "SELECT * FROM tasks WHERE id=" + taskId;
   // db.query(sql, function (error, result) {
   //   if (error) {
@@ -98,6 +105,8 @@ server.get("/api/task/:id", (req, res) => {
 
 server.put("/api/task/update/:id", (req, res) => {
   let taskId = req.params.id;
+
+  //json server
   taskData.at(taskId).title = req.body.title;
   taskData.at(taskId).description = req.body.description;
   taskData.at(taskId).long_description = req.body.long_description;
@@ -127,9 +136,12 @@ server.put("/api/task/update/:id", (req, res) => {
 
 server.delete("/api/task/delete/:id", (req, res) => {
   let taskId = req.params.id;
+
+  //json server
   taskData.splice(taskId, 1);
   res.send({ status: true, message: "Task Deleted successfully" });
 
+  //sql
   // let sql = "DELETE FROM tasks WHERE id=" + req.params.id + "";
   // let query = db.query(sql, (error) => {
   //   if (error) {
