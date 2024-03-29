@@ -57,7 +57,7 @@ server.get("/api/task", (req, res) => {
 
 server.post("/api/task/add", (req, res) => {
   let details = {
-    id: taskData.length + 1,
+    id: taskData.length, //comment if using sql
     title: req.body.title,
     description: req.body.description,
     long_description: req.body.long_description,
